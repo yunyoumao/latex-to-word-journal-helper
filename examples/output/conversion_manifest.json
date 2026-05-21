@@ -1,0 +1,51 @@
+{
+  "root": "D:\\OneDrive\\3_job\\open_source_projects\\latex-to-word-journal-helper\\examples\\synthetic_paper",
+  "main_tex": "main.tex",
+  "files": [
+    "main.tex",
+    "sections\\introduction.tex",
+    "sections\\methods.tex",
+    "sections\\results.tex"
+  ],
+  "title": "Synthetic Journal Conversion Example",
+  "abstract": "This synthetic manuscript demonstrates a public-safe LaTeX project for testing Word handoff automation.",
+  "sections": [
+    "Introduction",
+    "Methods",
+    "Results"
+  ],
+  "figures": [
+    "figures/workflow-diagram"
+  ],
+  "tables": 1,
+  "equations": 1,
+  "citations": [
+    "smith2024synthetic"
+  ],
+  "bibliography_files": [
+    "references"
+  ],
+  "labels": [
+    "eq:linear",
+    "fig:workflow",
+    "sec:introduction",
+    "sec:methods",
+    "sec:results",
+    "tab:checklist"
+  ],
+  "references": [
+    "eq:linear",
+    "fig:workflow",
+    "sec:missing"
+  ],
+  "missing_references": [
+    "sec:missing"
+  ],
+  "missing_figures": [],
+  "risks": [
+    "Recheck every figure placement and caption after Word layout.",
+    "Convert bibliography with the journal's required Word/Citation style.",
+    "Manually verify equations after Word conversion.",
+    "Fix unresolved cross-references before sending a Word draft."
+  ]
+}

@@ -1,0 +1,15 @@
+[project]
+name = "latex-to-word-journal-helper"
+version = "0.1.0"
+description = "Dependency-free helper that scans a LaTeX paper project and generates a Word conversion handoff package."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{ name = "Peize Li" }]
+dependencies = []
+
+[project.scripts]
+latex-word-helper = "latex_word_helper.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["latex_word_helper*"]

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="180" viewBox="0 0 480 180" role="img" aria-label="Synthetic workflow diagram">
+  <rect width="480" height="180" fill="#ffffff"/>
+  <g fill="#eef7f5" stroke="#006c67" stroke-width="2">
+    <rect x="30" y="58" width="110" height="58" rx="6"/>
+    <rect x="185" y="58" width="110" height="58" rx="6"/>
+    <rect x="340" y="58" width="110" height="58" rx="6"/>
+  </g>
+  <g fill="#162024" font-family="Arial, sans-serif" font-size="15" text-anchor="middle">
+    <text x="85" y="91">LaTeX</text>
+    <text x="240" y="91">Scan</text>
+    <text x="395" y="91">Word plan</text>
+  </g>
+  <g stroke="#647074" stroke-width="2" fill="none">
+    <path d="M142 87 H180"/>
+    <path d="M297 87 H335"/>
+  </g>
+</svg>
