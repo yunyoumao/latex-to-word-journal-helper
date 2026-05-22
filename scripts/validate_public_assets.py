@@ -9,6 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SKIP_DIRS = {".git", "__pycache__", ".pytest_cache", ".venv", "venv", "dist", "build"}
 TEXT_EXTENSIONS = {".md", ".py", ".tex", ".bib", ".svg", ".json", ".txt", ".yml", ".yaml"}
 FORBIDDEN_NAMES = {"." + "codex", "." + "claude", "AGENTS" + ".md", "CLAUDE" + ".md"}
+SCANNER_FILES = {Path("scripts/validate_public_assets.py")}
 
 EXPECTED_FILES = [
     "README.md",
@@ -25,9 +26,8 @@ EXPECTED_FILES = [
 ]
 
 PATTERNS = {
-    "local path": re.compile(r"(D:\\OneDrive|C:\\Users\\yunyo|I:\\data)", re.IGNORECASE),
-    "old email": re.compile(r"yunyou" + r"maomaomao|lipeize1997" + r"@126\.com", re.IGNORECASE),
-    "private company": re.compile(r"Air" + r"Liquide", re.IGNORECASE),
+    "local path": re.compile(r"([A-Z]:\\+(?:Users|OneDrive|Dropbox|Desktop|Documents|Projects|Research)\\+|/Users/|/home/)", re.IGNORECASE),
+    "personal email": re.compile(r"\b[\w.+-]+@(?:gmail|outlook|hotmail|qq|163|126)\.com\b", re.IGNORECASE),
     "phone number": re.compile(r"(?<![\d.-])1[3-9]\d{9}(?![\d.-])"),
     "credential": re.compile(
         r"(sk-[A-Za-z0-9_-]{20,}|ghp_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}|"
@@ -95,9 +95,10 @@ def main() -> int:
             if name in text and rel != ".gitignore":
                 errors.append(f"Forbidden workspace marker {name!r} in {rel}")
 
-        for label, pattern in PATTERNS.items():
-            if pattern.search(text):
-                errors.append(f"Potential {label} in {rel}")
+        if path.relative_to(ROOT) not in SCANNER_FILES:
+            for label, pattern in PATTERNS.items():
+                if pattern.search(text):
+                    errors.append(f"Potential {label} in {rel}")
 
         emails = re.findall(r"[\w.+-]+@[\w.-]+\.[a-zA-Z]{2,}", text)
         unexpected = [email for email in emails if not email.lower().endswith(("@example.com", "@example.org", "@example.net"))]

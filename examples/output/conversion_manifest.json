@@ -1,5 +1,5 @@
 {
-  "root": "D:\\OneDrive\\3_job\\open_source_projects\\latex-to-word-journal-helper\\examples\\synthetic_paper",
+  "root": "synthetic_paper",
   "main_tex": "main.tex",
   "files": [
     "main.tex",

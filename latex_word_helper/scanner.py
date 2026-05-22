@@ -124,7 +124,7 @@ def scan_project(root: Path) -> LatexProject:
         risks.append("Resolve missing figure files before conversion.")
 
     return LatexProject(
-        root=str(root),
+        root=root.name,
         main_tex=str(main_tex.relative_to(root)),
         files=[str(path.relative_to(root)) for path in tex_files],
         title=title,

@@ -17,6 +17,7 @@ SAMPLE = ROOT / "examples" / "synthetic_paper"
 class LatexWordHelperTests(unittest.TestCase):
     def test_scan_project(self) -> None:
         project = scan_project(SAMPLE)
+        self.assertEqual(project.root, "synthetic_paper")
         self.assertEqual(project.main_tex, "main.tex")
         self.assertEqual(project.title, "Synthetic Journal Conversion Example")
         self.assertEqual(len(project.sections), 3)
